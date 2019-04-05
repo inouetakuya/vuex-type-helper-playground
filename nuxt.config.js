@@ -55,5 +55,11 @@ export default {
         })
       }
     }
+  },
+  styleResources: {
+    scss: [
+      '~/assets/stylesheets/foundation/variables.scss',
+      '~/assets/stylesheets/foundation/colors.scss'
+    ]
   }
 }
