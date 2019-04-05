@@ -1,7 +1,9 @@
+import StylelintPlugin from 'stylelint-webpack-plugin'
 import pkg from './package'
 
 export default {
   mode: 'universal',
+  srcDir: 'src/',
 
   /*
    ** Headers of the page
@@ -24,7 +26,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [{ src: '~/assets/stylesheets/main.scss', lang: 'scss' }],
 
   /*
    ** Plugins to load before mounting the App
@@ -52,7 +54,19 @@ export default {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+
+        config.plugins.push(
+          new StylelintPlugin({
+            files: ['**/*.vue', '**/*.scss']
+          })
+        )
       }
     }
+  },
+  styleResources: {
+    scss: [
+      '~/assets/stylesheets/foundation/variables.scss',
+      '~/assets/stylesheets/foundation/colors.scss'
+    ]
   }
 }
