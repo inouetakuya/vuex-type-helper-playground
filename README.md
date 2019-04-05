@@ -1,24 +1,31 @@
-# vuex-type-helper-playground
+# Vuex Type Helper Playground
 
-[![CircleCI](https://circleci.com/gh/inouetakuya/vuex-type-helper-playground.svg?style=svg&circle-token=e32f9d735bf65c3d00980358952995ac0ae7374e)](https://circleci.com/gh/inouetakuya/vuex-type-helper-playground)
+[![CircleCI](https://circleci.com/gh/inouetakuya/vuex-type-helper-playground.svg?style=svg&circle-token=e32f9d735bf65c3d00980358952995ac0ae7374e)](https://circleci.com/gh/inouetakuya/vuex-type-helper-playground) [![Netlify Status](https://api.netlify.com/api/v1/badges/8e3f7d95-25f0-43cf-8f4c-06638d8abd36/deploy-status)](https://app.netlify.com/sites/vuex-type-helper-playground/deploys)
 
-> My polished Nuxt.js project
+Playground for Type level helper to ensure type safety in Vuex.
 
-## Build Setup
+## Setup
 
-``` bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn run dev
-
-# build for production and launch server
-$ yarn run build
-$ yarn start
-
-# generate static project
-$ yarn run generate
+```shell
+yarn install
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## Development
+
+serve with hot reload at localhost:3000
+
+```shell
+yarn dev --open
+```
+
+## Testing
+
+```shell
+yarn test
+```
+
+## Generate
+
+```shell
+yarn generate
+```
