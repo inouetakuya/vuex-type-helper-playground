@@ -8,7 +8,7 @@
       </h1>
 
       <h2 class="subtitle">
-        Counter: <span class="count">{{ count }}</span>
+        Counter: <span class="count">{{ half }}</span>
       </h2>
 
       <div class="links">
@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Getter, Vue } from 'nuxt-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import * as counter from '~/store/counter'
 import Logo from '~/components/Logo.vue'
 
@@ -29,13 +29,14 @@ import Logo from '~/components/Logo.vue'
   components: {
     Logo
   },
+  computed: {
+    ...counter.mapGetters(['half'])
+  },
   methods: {
     ...counter.mapActions(['incrementAsync'])
   }
 })
 export default class IndexPage extends Vue {
-  @Getter('counter/half') count
-
   incrementAsync: (payload: any) => void
 
   increment(): void {
