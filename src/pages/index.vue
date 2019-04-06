@@ -22,6 +22,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import { incrementAsyncPayload } from '~/store/counter'
 import * as counter from '~/store/counter'
 import Logo from '~/components/Logo.vue'
 
@@ -37,7 +38,7 @@ import Logo from '~/components/Logo.vue'
   }
 })
 export default class IndexPage extends Vue {
-  incrementAsync: (payload: { amount: number; delay: number }) => void
+  incrementAsync: (payload: incrementAsyncPayload) => void
 
   increment(): void {
     this.incrementAsync({ amount: 1, delay: 1000 })

@@ -15,11 +15,13 @@ interface Mutations {
   }
 }
 
+export interface incrementAsyncPayload {
+  amount: number
+  delay: number
+}
+
 interface Actions {
-  incrementAsync: {
-    amount: number
-    delay: number
-  }
+  incrementAsync: incrementAsyncPayload
 }
 
 export const state = (): State => ({
