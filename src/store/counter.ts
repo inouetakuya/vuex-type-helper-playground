@@ -1,42 +1,42 @@
 import { createNamespacedHelpers } from 'vuex'
 import { DefineGetters, DefineMutations, DefineActions } from 'vuex-type-helper'
 
-export interface CounterState {
+interface CounterState {
   count: number
 }
 
-export interface CounterGetters {
+interface CounterGetters {
   half: number
 }
 
-export interface CounterMutations {
+interface CounterMutations {
   increment: {
     amount: number
   }
 }
 
-export interface CounterActions {
+interface CounterActions {
   incrementAsync: {
     amount: number
     delay: number
   }
 }
 
-export const state = (): CounterState => ({
+const state = (): CounterState => ({
   count: 10
 })
 
-export const getters: DefineGetters<CounterGetters, CounterState> = {
+const getters: DefineGetters<CounterGetters, CounterState> = {
   half: state => state.count / 2
 }
 
-export const mutations: DefineMutations<CounterMutations, CounterState> = {
+const mutations: DefineMutations<CounterMutations, CounterState> = {
   increment(state, { amount }) {
     state.count += amount
   }
 }
 
-export const actions: DefineActions<
+const actions: DefineActions<
   CounterActions,
   CounterState,
   CounterMutations,
