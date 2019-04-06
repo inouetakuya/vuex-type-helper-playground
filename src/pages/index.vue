@@ -38,6 +38,8 @@ const counter = namespace('counter')
 export default class IndexPage extends Vue {
   @counter.Getter('half') count
 
+  incrementAsync: (payload: any) => void
+
   increment(): void {
     this.incrementAsync({ amount: 1, delay: 1000 })
   }
