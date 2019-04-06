@@ -1,3 +1,4 @@
+import { createNamespacedHelpers } from 'vuex'
 import { DefineGetters, DefineMutations, DefineActions } from 'vuex-type-helper'
 
 export interface CounterState {
@@ -46,4 +47,24 @@ export const actions: DefineActions<
       commit('increment', payload)
     }, payload.delay)
   }
+}
+
+export const {
+  mapState,
+  mapGetters,
+  mapMutations,
+  mapActions
+} = createNamespacedHelpers<
+  CounterState,
+  CounterGetters,
+  CounterMutations,
+  CounterActions
+>('counter')
+
+export const counter = {
+  namespaced: true,
+  state,
+  getters,
+  mutations,
+  actions
 }
