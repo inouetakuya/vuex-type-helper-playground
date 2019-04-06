@@ -30,10 +30,14 @@ import { Component, Getter, Vue } from 'nuxt-property-decorator'
   }
 })
 export default class IndexPage extends Vue {
-  @Getter('counter/half') count: number
+  @Getter('counter/half') count
 
   increment() {
-    alert('The increment button is clicked')
+    this.$store.dispatch({
+      type: 'counter/incrementAsync',
+      amount: 1,
+      delay: 1000
+    })
   }
 }
 </script>
