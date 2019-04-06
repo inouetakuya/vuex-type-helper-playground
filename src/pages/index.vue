@@ -25,12 +25,14 @@
 
 <script lang="ts">
 import Logo from '~/components/Logo.vue'
+import { Component, Vue } from 'nuxt-property-decorator'
 
-export default {
+@Component({
   components: {
     Logo
   }
-}
+})
+export default class IndexPage extends Vue {}
 </script>
 
 <style>
