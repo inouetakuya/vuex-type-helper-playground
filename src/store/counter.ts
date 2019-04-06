@@ -50,9 +50,7 @@ export const actions: DefineActions<
 }
 
 export const {
-  mapState,
   mapGetters,
-  mapMutations,
   mapActions
 } = createNamespacedHelpers<
   State,
