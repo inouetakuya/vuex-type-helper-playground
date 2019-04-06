@@ -2,22 +2,19 @@
   <section class="container">
     <div>
       <logo />
+
       <h1 class="title">
         vuex-type-helper-playground
       </h1>
+
       <h2 class="subtitle">
         My polished Nuxt.js project
       </h2>
+
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green"
-          >Documentation</a
-        >
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-          >GitHub</a
-        >
+        <button class="button--green" @click="increment">
+          Increment
+        </button>
       </div>
     </div>
   </section>
@@ -32,7 +29,11 @@ import { Component, Vue } from 'nuxt-property-decorator'
     Logo
   }
 })
-export default class IndexPage extends Vue {}
+export default class IndexPage extends Vue {
+  increment() {
+    alert('The increment button is clicked')
+  }
+}
 </script>
 
 <style>
