@@ -60,11 +60,3 @@ export const {
   CounterMutations,
   CounterActions
 >('counter')
-
-export const counter = {
-  namespaced: true,
-  state,
-  getters,
-  mutations,
-  actions
-}
