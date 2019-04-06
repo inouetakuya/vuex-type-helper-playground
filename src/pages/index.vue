@@ -23,8 +23,6 @@
 <script lang="ts">
 import Logo from '~/components/Logo.vue'
 import { Component, Getter, Vue } from 'nuxt-property-decorator'
-import { Dispatcher } from 'vuex-type-helper'
-import { CounterActions } from '~/store/counter'
 
 @Component({
   components: {
@@ -35,7 +33,7 @@ export default class IndexPage extends Vue {
   @Getter('counter/half') count
 
   increment() {
-    this.$store.dispatch<Dispatcher<CounterActions>>({
+    this.$store.dispatch({
       type: 'counter/incrementAsync',
       amount: 1,
       delay: 1000
