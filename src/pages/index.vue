@@ -30,7 +30,7 @@ import { Component, Getter, Vue } from 'nuxt-property-decorator'
   }
 })
 export default class IndexPage extends Vue {
-  @Getter('counter/invalidGetter') count: number
+  @Getter('counter/half') count: number
 
   increment() {
     alert('The increment button is clicked')
