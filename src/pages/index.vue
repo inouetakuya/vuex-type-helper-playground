@@ -37,7 +37,7 @@ import Logo from '~/components/Logo.vue'
   }
 })
 export default class IndexPage extends Vue {
-  incrementAsync: (payload: any) => void
+  incrementAsync: (payload: { amount: number; delay: number }) => void
 
   increment(): void {
     this.incrementAsync({ amount: 1, delay: 1000 })
