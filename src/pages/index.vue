@@ -8,7 +8,7 @@
       </h1>
 
       <h2 class="subtitle">
-        My polished Nuxt.js project
+        Counter: <span class="count">{{ count }}</span>
       </h2>
 
       <div class="links">
@@ -30,6 +30,10 @@ import { Component, Vue } from 'nuxt-property-decorator'
   }
 })
 export default class IndexPage extends Vue {
+  get count() {
+    return this.$store.getters['counter/half']
+  }
+
   increment() {
     alert('The increment button is clicked')
   }
