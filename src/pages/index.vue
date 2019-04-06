@@ -31,7 +31,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 })
 export default class IndexPage extends Vue {
   get count() {
-    return this.$store.getters['counter/half']
+    return this.$store.getters['counter/invalidGetter']
   }
 
   increment() {
