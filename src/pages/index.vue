@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import Logo from '~/components/Logo.vue'
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Getter, Vue } from 'nuxt-property-decorator'
 
 @Component({
   components: {
@@ -30,9 +30,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
   }
 })
 export default class IndexPage extends Vue {
-  get count() {
-    return this.$store.getters['counter/invalidGetter']
-  }
+  @Getter('counter/half') count: number
 
   increment() {
     alert('The increment button is clicked')
