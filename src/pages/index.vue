@@ -30,7 +30,7 @@ import Logo from '~/components/Logo.vue'
     Logo
   },
   methods: {
-    ...counter.mapActions(['incrementAsync'])
+    ...counter.mapActions(['incrementAsync', 'invalidAction'])
   }
 })
 export default class IndexPage extends Vue {
