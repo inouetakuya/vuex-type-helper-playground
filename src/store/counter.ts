@@ -22,21 +22,21 @@ interface Actions {
   }
 }
 
-const state = (): State => ({
+export const state = (): State => ({
   count: 10
 })
 
-const getters: DefineGetters<Getters, State> = {
+export const getters: DefineGetters<Getters, State> = {
   half: state => state.count / 2
 }
 
-const mutations: DefineMutations<Mutations, State> = {
+export const mutations: DefineMutations<Mutations, State> = {
   increment(state, { amount }) {
     state.count += amount
   }
 }
 
-const actions: DefineActions<
+export const actions: DefineActions<
   Actions,
   State,
   Mutations,
