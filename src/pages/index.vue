@@ -33,7 +33,7 @@ const counter = namespace('counter')
 })
 export default class IndexPage extends Vue {
   @counter.Getter('half') count
-  @counter.Action('invalidAction') incrementAsync
+  @counter.Action('incrementAsync') incrementAsync
 
   increment(): void {
     this.incrementAsync({ amount: 1, delay: 1000 })
