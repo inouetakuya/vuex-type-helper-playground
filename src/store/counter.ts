@@ -1,46 +1,46 @@
 import { createNamespacedHelpers } from 'vuex'
 import { DefineGetters, DefineMutations, DefineActions } from 'vuex-type-helper'
 
-interface CounterState {
+interface State {
   count: number
 }
 
-interface CounterGetters {
+interface Getters {
   half: number
 }
 
-interface CounterMutations {
+interface Mutations {
   increment: {
     amount: number
   }
 }
 
-interface CounterActions {
+interface Actions {
   incrementAsync: {
     amount: number
     delay: number
   }
 }
 
-const state = (): CounterState => ({
+const state = (): State => ({
   count: 10
 })
 
-const getters: DefineGetters<CounterGetters, CounterState> = {
+const getters: DefineGetters<Getters, State> = {
   half: state => state.count / 2
 }
 
-const mutations: DefineMutations<CounterMutations, CounterState> = {
+const mutations: DefineMutations<Mutations, State> = {
   increment(state, { amount }) {
     state.count += amount
   }
 }
 
 const actions: DefineActions<
-  CounterActions,
-  CounterState,
-  CounterMutations,
-  CounterGetters
+  Actions,
+  State,
+  Mutations,
+  Getters
 > = {
   incrementAsync({ commit }, payload) {
     setTimeout(() => {
@@ -55,8 +55,8 @@ export const {
   mapMutations,
   mapActions
 } = createNamespacedHelpers<
-  CounterState,
-  CounterGetters,
-  CounterMutations,
-  CounterActions
+  State,
+  Getters,
+  Mutations,
+  Actions
 >('counter')
