@@ -1,5 +1,6 @@
 import { createNamespacedHelpers } from 'vuex'
 import { DefineGetters, DefineMutations, DefineActions } from 'vuex-type-helper'
+import { Actions } from '~/types/counter'
 
 interface State {
   count: number
@@ -13,15 +14,6 @@ interface Mutations {
   increment: {
     amount: number
   }
-}
-
-export interface incrementAsyncPayload {
-  amount: number
-  delay: number
-}
-
-interface Actions {
-  incrementAsync: incrementAsyncPayload
 }
 
 export const state = (): State => ({

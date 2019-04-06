@@ -22,8 +22,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import { incrementAsyncPayload } from '~/store/counter'
 import * as counter from '~/store/counter'
+// import { Actions } from '~/types/counter'
 import Logo from '~/components/Logo.vue'
 
 @Component({
@@ -38,9 +38,12 @@ import Logo from '~/components/Logo.vue'
   }
 })
 export default class IndexPage extends Vue {
-  incrementAsync: (payload: incrementAsyncPayload) => void
+  // error  Parsing error: Unexpected token, expected "]"
+  // incrementAsync: (payload: Actions['incrementAsync']) => void
+  incrementAsync: (payload: any) => void
 
   increment(): void {
+    console.log(counter)
     this.incrementAsync({ amount: 1, delay: 1000 })
   }
 }
