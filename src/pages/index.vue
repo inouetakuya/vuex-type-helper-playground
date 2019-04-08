@@ -21,29 +21,21 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-import * as counter from '~/store/counter'
-// import { Actions } from '~/types/counter'
+import { Component, Vue, namespace } from 'nuxt-property-decorator'
 import Logo from '~/components/Logo.vue'
+
+const counter = namespace('counter')
 
 @Component({
   components: {
     Logo
-  },
-  computed: {
-    ...counter.mapGetters(['half'])
-  },
-  methods: {
-    ...counter.mapActions(['incrementAsync'])
   }
 })
 export default class IndexPage extends Vue {
-  // error  Parsing error: Unexpected token, expected "]"
-  // incrementAsync: (payload: Actions['incrementAsync']) => void
-  incrementAsync: (payload: any) => void
+  @counter.Getter('half') half
+  @counter.Action('incrementAsync') incrementAsync
 
   increment(): void {
-    console.log(counter)
     this.incrementAsync({ amount: 1, delay: 1000 })
   }
 }
