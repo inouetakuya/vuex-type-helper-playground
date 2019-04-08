@@ -21,10 +21,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, namespace } from 'nuxt-property-decorator'
+import { Component, Getter, Vue } from 'nuxt-property-decorator'
 import Logo from '~/components/Logo.vue'
-
-const counter = namespace('counter')
 
 @Component({
   components: {
@@ -32,11 +30,10 @@ const counter = namespace('counter')
   }
 })
 export default class IndexPage extends Vue {
-  @counter.Getter('half') half
-  @counter.Action('incrementAsync') incrementAsync
+  @Getter('counter/half') half
 
   increment(): void {
-    this.incrementAsync({ amount: 1, delay: 1000 })
+    this.$store.dispatch('counter/incrementAsync', { amount: 1, delay: 1000 })
   }
 }
 </script>
