@@ -2,33 +2,49 @@
   <section class="container">
     <div>
       <logo />
+
       <h1 class="title">
         vuex-type-helper-playground
       </h1>
+
       <h2 class="subtitle">
-        My polished Nuxt.js project
+        Counter: <span class="count">{{ half }}</span>
       </h2>
+
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green"
-          >Documentation</a
-        >
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-          >GitHub</a
-        >
+        <button class="button--green" @click="increment">
+          Increment
+        </button>
       </div>
     </div>
   </section>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+import * as counter from '~/store/counter'
+// import { Actions } from '~/types/counter'
 import Logo from '~/components/Logo.vue'
 
-export default {
+@Component({
   components: {
     Logo
+  },
+  computed: {
+    ...counter.mapGetters(['half'])
+  },
+  methods: {
+    ...counter.mapActions(['incrementAsync'])
+  }
+})
+export default class IndexPage extends Vue {
+  // error  Parsing error: Unexpected token, expected "]"
+  // incrementAsync: (payload: Actions['incrementAsync']) => void
+  incrementAsync: (payload: any) => void
+
+  increment(): void {
+    console.log(counter)
+    this.incrementAsync({ amount: 1, delay: 1000 })
   }
 }
 </script>
